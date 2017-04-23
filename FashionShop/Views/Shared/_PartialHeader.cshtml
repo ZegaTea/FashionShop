@@ -1,0 +1,93 @@
+﻿@model Model.ViewModel.CategoryViewModel
+@{ 
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    Session[FashionShop.Common.CommonConstants.URL_SESSISON] = url;
+}
+<header id="header">
+    <!--header-->
+    <div class="header_top">
+        <!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-phone"></i> 01657183643 </a></li>
+                            <li><a href=""><i class="fa fa-envelope"></i> dovantu1996@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="https://www.facebook.com/ShopNinhHiep/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-bottom">
+        <!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="logo pull-left">
+                        <a href="#">
+                            <img src="~/Resources/images/logo.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="padding-top:10px">
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="/trang-chu" class="active">Trang chủ</a></li>
+                            @foreach (var item in Model.ListGroup)
+                            {
+                                var link1 = "/san-pham/";
+                                foreach (var subItem in Model.ListGroupDetail)
+                                {
+                                    if (subItem.nhomMa == item.maNhom)
+                                    {
+                                        link1 = link1 + subItem.meta_tittle;
+                                        break;
+                                    }
+                                }
+                                <li class="dropdown">
+                                    <a href="@link1" class="active">@item.tenNhom<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        @foreach (var subItem in Model.ListGroupDetail)
+                                        {
+                                            if (subItem.nhomMa == item.maNhom)
+                                            {
+                                                var link = "/san-pham/" + subItem.meta_tittle;
+                                                <li><a href="@link" class="active">@subItem.tenLoaiSanPham</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="shop-menu pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
+                            <li><a href="/gio-hang"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            @*<li>@Html.ActionLink("Đăng nhập", "Login" , "Login")</li>*@
+                            <li><a href="@Url.Action("Login", "User")"><i class="fa fa-sign-in"> Đăng nhập</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

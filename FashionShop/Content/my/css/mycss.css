@@ -1,0 +1,16 @@
+﻿#khungPr{
+    width:100%;
+    height:100%;
+}
+
+#khungPr #chiTiet{
+    padding:15px;
+    width:100%;
+    height:100%;
+    text-align:left;
+}
+
+#khungPr #khungAnh{
+    width:100%;
+    height:100%;
+}

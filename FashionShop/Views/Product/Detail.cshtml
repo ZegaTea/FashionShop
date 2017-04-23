@@ -1,0 +1,69 @@
+﻿@model FashionShop.Models.RelaProducts
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Session[FashionShop.Common.CommonConstants.URL_SESSISON] = HttpContext.Current.Request.Url.AbsoluteUri;
+}
+@section jsFooter{
+    <script src="~/assets/client/js/controller/cartController.js"></script>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="col-md-12">
+                <div class="col-md-7">
+                    <img src="@Model.product.urlAnh" />
+                </div>
+                <div class="col-md-4" style="float:right">
+                    <h1>@Model.product.tenSanPham</h1>
+                    <h3>Mã sản phẩm: <span id="idSanPham">@Model.product.maSanPham</span></h3>
+                    <h3>Giá: <i>@Model.product.giaSanPham.ToString("N0") vnđ</i></h3>
+                    <p><b>Màu sắc:</b>@Model.product.mauSac </p>
+                    <p><b>Tình trạng:</b> Còn hàng</p>
+                    <p><b>Chất liệu:</b>@Model.product.chatLieu</p>
+                    <p><b>Cửa hàng:</b> Leegjn Shop</p>
+                    <div class="col-md-7" style="padding-left:0; padding-right:0">
+                        <p><b>Size</b></p>
+                        <p><b>Số lượng</b></p>
+                    </div>
+                    <div class="col-md-5">
+                        <select class="form-control" id="cmbSize">
+                            @foreach (var size in Model.productDetail)
+                            {
+                                <option>@size.size</option>
+                            }
+                        </select>
+                        <input type="number" value="1" min="1" style="width:70px" autocomplete="off" class="txtSoLuong">
+                    </div>
+                    <button class="btn btn-fefault cart" id="btnAddCart">
+                        <i class="fa fa-shopping-cart"> Đặt mua</i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <!--Do sth here-->
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="features_items">
+                <h2 class="title text-center">Sản phẩm liên quan</h2>
+                @foreach (var item in Model.listRelaProduct)
+            {
+                var link = "/san-pham/" + item.groupDetailTittle + "/" + item.maSanPham;
+                    <div class="col-sm-12">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href="@link"><img src=@item.urlAnh /></a>
+                                    <h2>@item.giaSanPham</h2>
+                                    <a href="@link"><p>@item.tenSanPham</p></a>
+                                    <a href="@link" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Model.ViewModel.ProductViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var quan = Model.Where(x => x.nhomMa == "quan").OrderByDescending(x => x.soLuongDatMua).Take(5);
+    var ao = Model.Where(x => x.nhomMa == "ao").OrderByDescending(x => x.soLuongDatMua).Take(5);
+}
+
+@*features_items*@
+<div class="features_items">
+    <h2 class="title text-center">Áo nam bán chạy</h2>
+    @foreach (var item in ao)
+    {
+        var link = "/san-pham/" + item.groupDetailTittle + "/" + item.maSanPham;
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <a href="@link"><img src=@item.urlAnh /></a>
+                        <h2>@item.giaSanPham</h2>
+                        <a href="@link"><p>@item.tenSanPham</p></a>
+                        <a href="@link" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="features_items">
+    <h2 class="title text-center">Quần nam bán chạy</h2>
+    @foreach (var item in quan)
+    {
+        var link = "/san-pham/" + item.groupDetailTittle + "/" + item.maSanPham;
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <a href="@link"><img src=@item.urlAnh /></a>
+                        <h2>@item.giaSanPham</h2>
+                        <a href="@link"><p>@item.tenSanPham</p></a>
+                        <a href="@link" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

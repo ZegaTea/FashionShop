@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Model.Entities.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.diaChi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.soDienThoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tenNguoiDung)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.soDienThoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenNguoiDung)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.username }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.username }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.username })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

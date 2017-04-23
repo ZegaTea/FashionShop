@@ -1,0 +1,139 @@
+﻿@model Model.ViewModel.CategoryViewModel
+
+
+<div class="left-sidebar">
+    <h2>Category</h2>
+    <div class="panel-group category-products" id="accordian">
+        <!--category-productsr-->
+        @foreach (var item in Model.ListGroup)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#@item.maNhom">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            @item.tenNhom
+                        </a>
+                    </h4>
+                </div>
+                <div id="@item.maNhom" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var subItem in Model.ListGroupDetail)
+                            {
+                                if (subItem.nhomMa == item.maNhom)
+                                {
+                                    <li><a href="/san-pham/@subItem.meta_tittle">@subItem.tenLoaiSanPham</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+        @*<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Áo nam
+                        </a>
+                    </h4>
+                </div>
+                <div id="sportswear" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            <li><a href="">Áo sơ mi </a></li>
+                            <li><a href="">Áo phông </a></li>
+                            <li><a href="">Áo len </a></li>
+                            <li><a href="">Áo khoác</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Quần nam
+                        </a>
+                    </h4>
+                </div>
+                <div id="mens" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            <li><a href="">Quần vải</a></li>
+                            <li><a href="">Quần kaki</a></li>
+                            <li><a href="">Quần jeans</a></li>
+                            <li><a href="">Quần ngố</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Phụ kiện
+                        </a>
+                    </h4>
+                </div>
+                <div id="womens" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            <li><a href="">Thắt lưng</a></li>
+                            <li><a href="">Ví da</a></li>
+                            <li><a href="">Đồng hồ</a></li>
+                            <li><a href="">Vòng</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+
+
+        @*<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Kids</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Fashion</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Households</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Interiors</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Clothing</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Bags</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Shoes</a></h4>
+                </div>
+            </div>*@
+    </div><!--/category-productsr-->
+
+    <div class="shipping text-center">
+        <!--shipping-->
+        <img src="~/Resources/images/home/shipping.jpg" />
+    </div><!--/shipping-->
+
+</div>
