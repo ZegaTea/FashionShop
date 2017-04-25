@@ -53,7 +53,6 @@ namespace FashionShop.Areas.Admin.Models.Dao
                             urlAnh = a.urlAnh,
                             ngayTao = a.ngayTao,
                             tenSanPham = a.tenSanPham,
-                            tenNhom = c.tenNhom,
                             tenLoai = b.tenLoaiSanPham
                         };
             return model.ToList();

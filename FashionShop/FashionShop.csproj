@@ -237,6 +237,7 @@
     <Content Include="assets\admin\dist\js\sb-admin-2.js" />
     <Content Include="assets\admin\dist\js\sb-admin-2.min.js" />
     <Content Include="assets\admin\js\sb-admin-2.js" />
+    <Content Include="assets\admin\js\updateAdmin.js" />
     <Content Include="assets\admin\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="assets\admin\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="assets\admin\vendor\bootstrap\css\bootstrap.min.css" />
