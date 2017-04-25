@@ -8,3 +8,13 @@ F:\Web\FashionShop\Model\bin\Debug\EntityFramework.SqlServer.xml
 F:\Web\FashionShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 F:\Web\FashionShop\Model\obj\Debug\Model.dll
 F:\Web\FashionShop\Model\obj\Debug\Model.pdb
+E:\GitHub\FashionShop\Model\bin\Debug\Model.dll.config
+E:\GitHub\FashionShop\Model\bin\Debug\Model.dll
+E:\GitHub\FashionShop\Model\bin\Debug\Model.pdb
+E:\GitHub\FashionShop\Model\bin\Debug\EntityFramework.dll
+E:\GitHub\FashionShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\FashionShop\Model\bin\Debug\EntityFramework.xml
+E:\GitHub\FashionShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\FashionShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\GitHub\FashionShop\Model\obj\Debug\Model.dll
+E:\GitHub\FashionShop\Model\obj\Debug\Model.pdb

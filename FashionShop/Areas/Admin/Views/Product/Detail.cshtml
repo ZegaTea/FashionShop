@@ -1,33 +1,102 @@
-﻿@model Model.Entities.Product
+﻿@model FashionShop.Areas.Admin.Models.DTO.ProductDetail
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div id="page-wrapper">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="@Model.urlAnh" />
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-4">
-                <p>Mã sản phẩm: </p>
-                <p>Tên sản phẩm: </p>
-                <p>Giá sản phẩm: </p>
-                <p>Chất liệu: </p>
-                <p>Màu sắc: </p>
-                <p>Số lượng đặt mua: </p>
-                <p>Ngày tạo: </p>
+
+    <div class="col-md-4">
+        <img src="@Model.product[0].urlAnh" style="width:100%; height:100%" />
+    </div>
+    <div class="col-md-8">
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ma">Mã sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ma" value="@Model.product[0].maSanPham">
+                </div>
             </div>
-            <div class="col-md-8">
-                <input type="text" value="@Model.maSanPham"/><br/>
-                <input type="text" value="@Model.tenSanPham" /><br/>
-                <input type="number" value="@Model.giaSanPham.ToString("N0")" /><br/>
-                <input type="text" value="@Model.chatLieu" /><br/>
-                <input type="text" value="@Model.mauSac" /><br/>
-                <input type="number" value="@Model.soLuongDatMua" /><br />
-                <input type="date" value="@Model.ngayTao" readonly /><br />
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ten">Tên sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ten" value="@Model.product[0].tenSanPham">
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="gia">Giá sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="gia" value="@Model.product[0].giaSanPham.ToString("N0")">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="mota">Mô tả: </label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" rows="5" id="mota">@Model.product[0].moTa</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="chatlieu">Chất liệu: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chatlieu" value="@Model.product[0].chatLieu">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="mau">Màu sắc: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="mau" value="@Model.product[0].mauSac">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="sl">Số lượng đặt mua: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sl" value="@Model.product[0].soLuongDatMua">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ngaytao">Ngày tạo </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ngaytao" value="@Model.product[0].ngayTao" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="tenloai">Loại sản phẩm: </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="ngaytao">
+                        @foreach (var item in Model.groupDetail)
+                        {
+                            if (item.tenLoaiSanPham == Model.product[0].tenLoai)
+                            {
+                                <option value="@item.maLoaiSanPham" selected>@item.tenLoaiSanPham</option>
+                            }
+                            else
+                            {
+                                <option value="@item.maLoaiSanPham">@item.tenLoaiSanPham</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="tennhom">Nhóm sản phẩm: </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="tennhom">
+                        @foreach (var item in Model.groupPr)
+                        {
+                            if (item.tenNhom == Model.product[0].tenNhom)
+                            {
+                                <option value="@item.maNhom" selected>@item.tenNhom</option>
+                            }
+                            else
+                            {
+                                <option value="@item.maNhom">@item.tenNhom</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default" style="position:center">Lưu thay đổi</button>
+        </form>
+
     </div>
 </div>
-

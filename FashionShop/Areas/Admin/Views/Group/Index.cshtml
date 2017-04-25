@@ -1,5 +1,4 @@
-﻿@model IEnumerable<FashionShop.Areas.Admin.Models.DTO.adminProductViewDto>
-
+﻿@model List<Model.Entities.GroupPr>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -35,14 +34,9 @@
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th>Mã</th>
-                                <th>Tên</th>
-                                <th>Giá</th>
-                                <th>Màu sắc</th>
-                                <th>Ảnh</th>
-                                <th>Chất liệu</th>
-                                <th>Tên loại sản phẩm</th>
-                                <th>Tên nhóm sản phẩm</th>
+                                <th>Mã nhóm</th>
+                                <th>Tên nhóm</th>
+                                <th>Meta title</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -50,15 +44,10 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.maSanPham</td>
-                                    <td>@item.tenSanPham</td>
-                                    <td>@item.giaSanPham.ToString("N0")</td>
-                                    <td>@item.mauSac</td>
-                                    <td><img src="@item.urlAnh" style="width:50px;height:50px"/></td>
-                                    <td>@item.chatLieu</td>
-                                    <td>@item.tenLoai</td>
+                                    <td>@item.maNhom</td>
                                     <td>@item.tenNhom</td>
-                                    <td>@Html.ActionLink("Chi tiết", "Detail" ,  new { id = item.maSanPham})</td>
+                                    <td>@item.meta_tittle</td>
+                                    <td>@Html.ActionLink("Chi tiết", "Detail", new { id = item.maNhom })</td>
                                 </tr>
                             }
                         </tbody>

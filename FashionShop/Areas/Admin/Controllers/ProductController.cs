@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FashionShop.Areas.Admin.Models.Dao;
+using FashionShop.Areas.Admin.Models.DTO;
 
 namespace FashionShop.Areas.Admin.Controllers
 {
@@ -32,7 +33,11 @@ namespace FashionShop.Areas.Admin.Controllers
 
         public ActionResult Detail(string id)
         {
-            var model = new adminProductDao().detail(id);
+            var model = new ProductDetail();
+            
+            model.product = new adminProductDao().getProductDto(id).ToList();
+            model.groupPr = new adminGroupDao().getList().ToList();
+            model.groupDetail = new adminGroupDetailDao().getList().ToList();
             return View(model);
         }
     }
