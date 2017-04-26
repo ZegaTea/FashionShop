@@ -236,6 +236,8 @@
     <Content Include="assets\admin\dist\css\sb-admin-2.min.css" />
     <Content Include="assets\admin\dist\js\sb-admin-2.js" />
     <Content Include="assets\admin\dist\js\sb-admin-2.min.js" />
+    <Content Include="assets\admin\js\createAdmin.js" />
+    <Content Include="assets\admin\js\deleteAdmin.js" />
     <Content Include="assets\admin\js\sb-admin-2.js" />
     <Content Include="assets\admin\js\updateAdmin.js" />
     <Content Include="assets\admin\vendor\bootstrap-social\bootstrap-social.css" />
@@ -479,6 +481,7 @@
     <Content Include="Areas\Admin\Views\Group\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\GroupDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\GroupDetail\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

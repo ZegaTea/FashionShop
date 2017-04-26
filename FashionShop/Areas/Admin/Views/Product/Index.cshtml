@@ -14,6 +14,7 @@
     <script src="~/assets/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="~/assets/admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="~/assets/admin/js/deleteAdmin.js"></script>
     <script>
         $(document).ready(function () {
             $('#dataTables-example').DataTable({
@@ -44,6 +45,7 @@
                                 <th>Tên loại sản phẩm</th>
                                 <th>Tên nhóm sản phẩm</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,11 +56,12 @@
                                     <td>@item.tenSanPham</td>
                                     <td>@item.giaSanPham.ToString("N0")</td>
                                     <td>@item.mauSac</td>
-                                    <td><img src="@item.urlAnh" style="width:50px;height:50px"/></td>
+                                    <td><img src="@item.urlAnh" style="width:50px;height:50px" /></td>
                                     <td>@item.chatLieu</td>
                                     <td>@item.tenLoai</td>
                                     <td>@item.tenNhom</td>
-                                    <td>@Html.ActionLink("Chi tiết", "Detail" ,  new { id = item.maSanPham})</td>
+                                    <td>@Html.ActionLink("Sửa", "Detail", new { id = item.maSanPham })</td>
+                                    <td><a href="#" class="btn-delete" data-id="@item.maSanPham">Xóa</a></td>
                                 </tr>
                             }
                         </tbody>

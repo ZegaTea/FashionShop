@@ -27,10 +27,6 @@ namespace FashionShop.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Delete(string id)
-        {
-            return View();
-        }
 
         public ActionResult Detail(string id)
         {
@@ -47,10 +43,32 @@ namespace FashionShop.Areas.Admin.Controllers
             Product pr = db.Product.Find(product.maSanPham);
             if (pr != null)
             {
-                pr = product;
+                pr.tenSanPham = product.tenSanPham;
+                pr.soLuongDatMua = product.soLuongDatMua;
+                pr.moTa = product.moTa;
+                pr.mauSac = product.mauSac;
+                pr.loaiSanPhamMa = product.loaiSanPhamMa;
+                pr.giaSanPham = product.giaSanPham;
+                pr.chatLieu = product.chatLieu;
+
+                db.SaveChanges();
             }
             return Json(new
             {
+                status = true
+            });
+        }
+
+        public JsonResult DeleteProduct(string maSanPham)
+        {
+            FashionShopDbContext db = new FashionShopDbContext();
+            Product pr = db.Product.Find(maSanPham);
+            if (pr != null)
+            {
+                db.Product.Remove(pr);
+                db.SaveChanges();
+            }
+            return Json(new {
                 status = true
             });
         }

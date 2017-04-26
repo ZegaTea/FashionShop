@@ -17,55 +17,55 @@
             <div class="form-group">
                 <label class="control-label col-sm-3" for="ma">Mã sản phẩm: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="ma" value="@Model.product[0].maSanPham" readonly>
+                    <input type="text" class="form-control ma" id="ma" value="@Model.product[0].maSanPham" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="ten">Tên sản phẩm: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="ten" value="@Model.product[0].tenSanPham">
+                    <input type="text" class="form-control ten" id="ten" value="@Model.product[0].tenSanPham">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="gia">Giá sản phẩm: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="gia" value="@Model.product[0].giaSanPham.ToString("N0")">
+                    <input type="text" class="form-control gia" id="gia" value="@Model.product[0].giaSanPham" >
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="mota">Mô tả: </label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" rows="5" id="mota">@Model.product[0].moTa</textarea>
+                    <textarea class="form-control mota" rows="5" id="mota" >@Model.product[0].moTa</textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="chatlieu">Chất liệu: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="chatlieu" value="@Model.product[0].chatLieu">
+                    <input type="text" class="form-control chatlieu" id="chatlieu" value="@Model.product[0].chatLieu">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="mau">Màu sắc: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="mau" value="@Model.product[0].mauSac">
+                    <input type="text" class="form-control mau" id="mau" value="@Model.product[0].mauSac">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="sl">Số lượng đặt mua: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="sl" value="@Model.product[0].soLuongDatMua">
+                    <input type="text" class="form-control sl" id="sl" value="@Model.product[0].soLuongDatMua">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="ngaytao">Ngày tạo </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="ngaytao" value="@Model.product[0].ngayTao" readonly>
+                    <input type="text" class="form-control ngaytao" id="ngaytao" value="@Model.product[0].ngayTao" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="tenloai">Loại sản phẩm: </label>
                 <div class="col-sm-9">
-                    <select class="form-control" id="tenloai">
+                    <select class="form-control tenloai" id="tenloai">
                         @foreach (var item in Model.groupDetail)
                         {
                             if (item.tenLoaiSanPham == Model.product[0].tenLoai)
@@ -80,7 +80,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-default" id="btnUpdateProduct" url="@Model.product[0].urlAnh">Lưu thay đổi</button>
+            <button type="button" class="btn btn-default" id="btnUpdateProduct"  url="@Model.product[0].urlAnh">Lưu thay đổi</button>
         </div>
 
     </div>

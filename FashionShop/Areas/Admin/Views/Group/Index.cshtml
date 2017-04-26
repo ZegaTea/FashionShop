@@ -38,6 +38,7 @@
                                 <th>Tên nhóm</th>
                                 <th>Meta title</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +48,8 @@
                                     <td>@item.maNhom</td>
                                     <td>@item.tenNhom</td>
                                     <td>@item.meta_tittle</td>
-                                    <td>@Html.ActionLink("Chi tiết", "Detail", new { id = item.maNhom })</td>
+                                    <td class="center">@Html.ActionLink("Sửa", "Detail", new { id = item.maNhom })</td>
+                                    <td><a href="#" class="center btn-delete-groupPr" data-id="@item.maNhom">Xóa</a></td>
                                 </tr>
                             }
                         </tbody>
