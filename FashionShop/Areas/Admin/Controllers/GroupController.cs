@@ -88,5 +88,29 @@ namespace FashionShop.Areas.Admin.Controllers
                 });
             }
         }
+
+        public JsonResult DeleteGroupPr(string id)
+        {
+            FashionShopDbContext db = new FashionShopDbContext();
+            GroupPr gr = db.GroupPr.Find(id);
+            int st = 1;
+            if (gr != null)
+            {
+                try
+                {
+                    db.GroupPr.Remove(gr);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    st = 2;
+                }
+                
+            }
+            return Json(new
+            {
+                status = st
+            });
+        }
     }
 }

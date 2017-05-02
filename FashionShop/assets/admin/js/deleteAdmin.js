@@ -1,5 +1,5 @@
 ﻿var deleteAdmin = {
-    init: function(){
+    init: function () {
         deleteAdmin.events();
     },
 
@@ -22,6 +22,40 @@
                 }
             })
         });
+
+        $('.btn-delete-groupPr').off('click').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                data: { id: $(this).data('id') },
+                url: '/Admin/Group/DeleteGroupPr',
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == 1) {
+                        alert("Xóa nhóm sản phẩm thành công");
+                        window.location.href = "/Admin/Group/Index"
+                    }
+                    else {
+                        alert("Xóa nhóm sản phẩm không thành công")
+                    }
+                }
+            })
+        });
+        $('.btnDeleteGroupDetail').off('click').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                data: { id: $(this).data('id') },
+                url: '/Admin/GroupDetail/DeleteGroupDetail',
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        alert("Xóa loại sản phẩm thành công");
+                        window.location.href = "/Admin/GroupDetail/Index"
+                    }
+                }
+            })
+        })
     }
 }
 

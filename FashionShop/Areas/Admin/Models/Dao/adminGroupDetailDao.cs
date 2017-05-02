@@ -32,5 +32,10 @@ namespace FashionShop.Areas.Admin.Models.Dao
         {
             return db.GroupDetail.ToList();
         }
+
+        public GroupDetail getDetail(string id)
+        {
+            return db.GroupDetail.Find(id);
+        }
     }
 }

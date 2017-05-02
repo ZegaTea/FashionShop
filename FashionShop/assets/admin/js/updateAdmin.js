@@ -49,6 +49,25 @@
                 }
             })
         });
+
+        $('#btnUpdateGroupDetail').off('click').on('click', function () {
+            $.ajax({
+                data: {
+                    maLoai: $('#ma').val(),
+                    tenLoai: $('#ten').val(),
+                    tittle: $('#tittle').val(),
+                    maNhom: $('#manhom').val()
+                },
+                url: '/Admin/GroupDetail/UpdateGroupDetail',
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        alert("Cập nhật thông tin loại sản phẩm thành công")
+                    }
+                }
+            })
+        })
     }
 
 }

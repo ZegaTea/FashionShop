@@ -212,6 +212,7 @@
     <Compile Include="Areas\Admin\Models\Dao\adminProductDao.cs" />
     <Compile Include="Areas\Admin\Models\DTO\adminGroupDetailDTO.cs" />
     <Compile Include="Areas\Admin\Models\DTO\adminProductViewDto.cs" />
+    <Compile Include="Areas\Admin\Models\DTO\GroupDetailDTO.cs" />
     <Compile Include="Areas\Admin\Models\DTO\ProductDetail.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\AdminLogin.cs" />
@@ -482,6 +483,7 @@
     <Content Include="Areas\Admin\Views\GroupDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\GroupDetail\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Group\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupDetail\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

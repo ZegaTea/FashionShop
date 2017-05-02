@@ -12,7 +12,7 @@ namespace FashionShop.Controllers
     public class ProductController : Controller
     {
         
-        public ActionResult Index(string id, int page = 1, int pageSize = 6)
+        public ActionResult Index(string id, int page = 1, int pageSize = 2)
         {
             int totalRecord = 0;
             var dao = new ProductDao();
