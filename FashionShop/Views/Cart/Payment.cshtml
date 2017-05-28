@@ -1,0 +1,103 @@
+﻿@model List<FashionShop.Models.CartItem>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (Model.Entities.User)Session[FashionShop.Common.CommonConstants.USER_SESSION];
+}
+
+@section jsFooter{
+    <script src="~/assets/client/js/controller/cartController.js"></script>
+}
+
+<div class="container">
+    <div class="row">
+        @if (Model.Count > 0)
+        {
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th class="text-center">Size</th>
+                            <th>Số lượng</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">Thành tiền</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var tongTien = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            tongTien = tongTien + (item.soLuong * item.product.giaSanPham);
+                            <tr>
+                                <td class="col-sm-6 col-md-6">
+                                    <div class="media">
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="@item.product.urlAnh" style="width: 72px; height: 72px;"> </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="#">@item.product.tenSanPham</a></h4>
+                                            <h5 class="media-heading">Màu sắc: @item.product.mauSac</h5>
+                                            <span class="media-heading">Mã sản phẩm: </span><span class="text-success">@item.product.maSanPham</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong data-id="@item.product.maSanPham">@item.size</strong></td>
+                                <td class="col-sm-2 col-md-2 text-center"><strong>@item.soLuong</strong></td>
+                                <td class="col-sm-2 col-md-2 text-center"><strong>@item.product.giaSanPham.ToString("N0")</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>@((item.soLuong * item.product.giaSanPham).ToString("N0"))</strong></td>
+                                <td class="col-sm-1 col-md-1">
+                                    <button type="button" class="btn btn-danger" size="@item.size" ma="@item.product.maSanPham"> <span class="glyphicon glyphicon-remove"></span><b class="btnDelete"> Xóa sản phẩm </b></button>
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td colspan="4" class="text-center"><h4><strong>Tổng tiền thanh toán</strong></h4></td>
+                            <td class="col-sm-1 col-md-1 text-center"><h4><strong>@tongTien.ToString("N0")</strong></h4></td>
+                            <td class="col-sm-1 col-md-1"></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-12" style="height:50px">
+                                    <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+                                </div>
+
+                            }
+
+    </div>
+    <div class="section group" style="margin-left:20%">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label>Người nhận</label>
+                    <input name="ten" class="form-control" value="@user.tenNguoiDung"/>
+                </div>
+                <div class="form-group">
+                    <label>Điện thoại</label>
+                    <input name="sdt" class="form-control" value="@user.soDienThoai"/>
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input name="diachi" class="form-control" value="@user.diaChi" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input name="email" class="form-control" value="@user.email" />
+                </div>
+                <button type="submit" class="btn">Gửi đơn hàng</button>
+            }
+        </div>
+
+    </div>
+</div>
+
+
+

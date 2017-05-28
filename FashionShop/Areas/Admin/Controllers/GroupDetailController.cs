@@ -6,25 +6,17 @@ using System.Web.Mvc;
 using FashionShop.Areas.Admin.Models.Dao;
 using FashionShop.Areas.Admin.Models.DTO;
 using Model.Entities;
+using Model.Dao;
 
 namespace FashionShop.Areas.Admin.Controllers
 {
-    public class GroupDetailController : Controller
+    public class GroupDetailController : BaseController
     {
         // GET: Admin/GroupDetail
         public ActionResult Index()
         {
-            var temp = Session[Common.CommonConstants.ADMIN_SESSION];
-            if (temp == null)
-            {
-                return Redirect("../Login/Index");
-            }
-            else
-            {
-                var dao = new adminGroupDetailDao().getListDetail().ToList();
-                return View(dao);
-            }
-
+            var dao = new adminGroupDetailDao().getListDetail().ToList();
+            return View(dao);
         }
 
         public ActionResult Detail(string id)

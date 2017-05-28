@@ -84,7 +84,7 @@
                                     <a href="@Url.Action("Index", "Product")"><i class="fa fa-list"></i> Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-plus"> Thêm</i></a>
+                                    <a href="@Url.Action("Create", "Product")"><i class="fa fa-plus"> Thêm</i></a>
                                 </li>
                             </ul>
                         </li>
@@ -154,6 +154,8 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <script src="/assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
 
     @RenderSection("jsFooter", required: false)
 

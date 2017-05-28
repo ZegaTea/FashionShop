@@ -42,6 +42,13 @@ namespace FashionShop
            );
 
             routes.MapRoute(
+               name: "Payment",
+               url: "gio-hang/thanh-toan",
+               defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional },
+               namespaces: new[] { "FashionShop.Controllers" }
+           );
+
+            routes.MapRoute(
                 name: "Products detail",
                 url: "san-pham/{metatitle}/{id}",
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },

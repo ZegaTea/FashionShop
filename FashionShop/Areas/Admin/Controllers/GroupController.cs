@@ -8,21 +8,13 @@ using Model.Entities;
 
 namespace FashionShop.Areas.Admin.Controllers
 {
-    public class GroupController : Controller
+    public class GroupController : BaseController
     {
         // GET: Admin/Group
         public ActionResult Index()
         {
-            var temp = Session[Common.CommonConstants.ADMIN_SESSION];
-            if (temp == null)
-            {
-                return Redirect("../Login/Index");
-            }
-            else
-            {
-                var dao = new adminGroupDao().getList();
-                return View(dao);
-            }
+            var dao = new adminGroupDao().getList();
+            return View(dao);
         }
 
         public ActionResult Detail(string id)
@@ -56,10 +48,10 @@ namespace FashionShop.Areas.Admin.Controllers
         {
             FashionShopDbContext db = new FashionShopDbContext();
             GroupPr temp = db.GroupPr.Find(maNhom);
-            if(temp == null)
+            if (temp == null)
             {
                 var list = db.GroupPr.Where(x => x.meta_tittle == tittle).ToList();
-                if(list.Count() == 0)
+                if (list.Count() == 0)
                 {
                     GroupPr gr = new GroupPr();
                     gr.maNhom = maNhom;
@@ -105,7 +97,7 @@ namespace FashionShop.Areas.Admin.Controllers
                 {
                     st = 2;
                 }
-                
+
             }
             return Json(new
             {

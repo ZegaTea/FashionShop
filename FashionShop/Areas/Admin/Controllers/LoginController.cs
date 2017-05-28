@@ -18,12 +18,15 @@ namespace FashionShop.Areas.Admin.Controllers
 
         public ActionResult Login(LoginModel lm)
         {
-            var dao = new AdminDao();
-            var result = dao.CheckLogin(lm.userName, lm.passWord);
-            if (result)
+            if (ModelState.IsValid)
             {
-                Session[Common.CommonConstants.ADMIN_SESSION] = lm.userName.ToString();
-                return RedirectToAction("Index", "Main");
+                var dao = new AdminDao();
+                var result = dao.CheckLogin(lm.userName, lm.passWord);
+                if (result)
+                {
+                    Session.Add(Common.CommonConstants.ADMIN_SESSION, lm.userName.ToString());
+                    return RedirectToAction("Index", "Main");
+                }
             }
             return View("Index");
         }

@@ -33,6 +33,9 @@ namespace Model.Entities
         [StringLength(50)]
         public string tenNguoiDung { get; set; }
 
+        [StringLength(50)]
+        public string email { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipt { get; set; }
     }

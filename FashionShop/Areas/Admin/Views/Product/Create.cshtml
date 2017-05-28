@@ -1,0 +1,92 @@
+﻿@model List<Model.Entities.GroupDetail>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section jsFooter{
+    <script>
+        $('#btnChonAnh').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#url').val(url);
+            };
+            finder.popup();
+        })
+
+    </script>
+    <script src="~/assets/admin/js/createAdmin.js"></script>
+}
+
+<div id="page-wrapper">
+    <div class="col-md-12">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ma">Mã sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ma">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ten">Tên sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ten">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="price">Giá sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="mota">Mô tả sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="mota">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="chatlieu">CHất liệu sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chatlieu" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="mau">Màu sản phẩm: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="mau" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="url">Url: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="url" /><br />
+                    <a id="btnChonAnh" href="#">Chọn ảnh</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="maloai">Loại sản phẩm: </label>
+                <div class="col-sm-9">
+                    <select class="form-control tenloai" id="maloai">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.maLoaiSanPham">@item.tenLoaiSanPham</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="chitiet">Nhập số lượng sản phẩm: </label>
+                <div class="col-lg-9">
+                    <div class="form-horizontal" id="chitiet">
+                        
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-default" id="btnCreateProduct">Thêm sản phẩm</button>
+        </div>
+    </div>
+</div>

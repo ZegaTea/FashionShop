@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (Model.Entities.User)Session[FashionShop.Common.CommonConstants.USER_SESSION];
 }
 
 @section jsFooter{
@@ -42,7 +43,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="col-sm-1 col-md-1 text-center"><strong data-id="@item.product.maSanPham" >@item.size</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong data-id="@item.product.maSanPham">@item.size</strong></td>
                                 <td class="col-sm-2 col-md-2 text-center"><strong>@item.soLuong</strong></td>
                                 <td class="col-sm-2 col-md-2 text-center"><strong>@item.product.giaSanPham.ToString("N0")</strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>@((item.soLuong * item.product.giaSanPham).ToString("N0"))</strong></td>
@@ -63,11 +64,19 @@
                             <td>   </td>
                             <td>   </td>
                             <td>
-                                <button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping </button>
+                                <a href="/trang-chu" class="btn btn-default"> <span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục mua hàng </a>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-success"> Checkout <span class="glyphicon glyphicon-play"></span> </button>
+                                @if (user == null)
+                                {
+                                    <a href="@Url.Action("Login", "User")" class="btn btn-success"> Thanh toán <span class="glyphicon glyphicon-play"></span> </a>
+
+                                } else
+                                {
+                                    <a href="/gio-hang/thanh-toan" class="btn btn-success"> Thanh toán <span class="glyphicon glyphicon-play"></span> </a>
+                                }
                             </td>
+
                         </tr>
                     </tbody>
                 </table>

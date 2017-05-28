@@ -33,5 +33,10 @@ namespace Model.Dao
                      select us;
             return rs;
         }
+
+        public User getUser(string id)
+        {
+            return db.User.Find(id);
+        }
     }
 }

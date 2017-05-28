@@ -27,7 +27,14 @@ namespace Model.Entities
 
         [Required]
         [StringLength(50)]
-        public string userEmail { get; set; }
+        public string username { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string tinhTrang { get; set; }
+
+        [StringLength(50)]
+        public string soDienThoai { get; set; }
 
         public virtual User User { get; set; }
 

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FashionShop.Models;
 using Model.Dao;
+using Model.Entities;
 
 namespace FashionShop.Controllers
 {
@@ -13,6 +14,7 @@ namespace FashionShop.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            
             var model = new ProductDao().getListAll();    
             return View(model);
         }

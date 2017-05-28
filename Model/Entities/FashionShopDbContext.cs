@@ -95,7 +95,7 @@ namespace Model.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Receipt>()
-                .Property(e => e.userEmail)
+                .Property(e => e.username)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Receipt>()
@@ -126,7 +126,7 @@ namespace Model.Entities
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Receipt)
                 .WithRequired(e => e.User)
-                .HasForeignKey(e => e.userEmail)
+                .HasForeignKey(e => e.username)
                 .WillCascadeOnDelete(false);
         }
     }

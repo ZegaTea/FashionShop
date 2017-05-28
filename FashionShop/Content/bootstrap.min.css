@@ -27,10 +27,10 @@ audio, canvas, video {
     display: inline-block;
 }
 
-    audio:not([controls]) {
-        display: none;
-        height: 0;
-    }
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
 
 [hidden] {
     display: none;

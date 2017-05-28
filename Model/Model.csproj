@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Dao\AdminDao.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\GroupDetailDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
+    <Compile Include="Dao\ReceiptDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\FashionShopDbContext.cs" />

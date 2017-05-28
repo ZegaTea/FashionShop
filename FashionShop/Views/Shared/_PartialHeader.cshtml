@@ -1,7 +1,8 @@
 ﻿@model Model.ViewModel.CategoryViewModel
-@{ 
+@{
     string url = HttpContext.Current.Request.Url.AbsoluteUri;
     Session[FashionShop.Common.CommonConstants.URL_SESSISON] = url;
+    var user = (Model.Entities.User)Session[FashionShop.Common.CommonConstants.USER_SESSION];
 }
 <header id="header">
     <!--header-->
@@ -80,10 +81,22 @@
                 <div class="col-sm-4">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
+                            @if (user != null)
+                            {
+                                <li><a href="#"><i class="fa fa-user"></i> @user.tenNguoiDung</a></li>
+                            }
+
                             <li><a href="/gio-hang"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                             @*<li>@Html.ActionLink("Đăng nhập", "Login" , "Login")</li>*@
-                            <li><a href="@Url.Action("Login", "User")"><i class="fa fa-sign-in"> Đăng nhập</i></a></li>
+                            @if (user == null)
+                            {
+                                <li><a href="@Url.Action("Login", "User")"><i class="fa fa-sign-in"> Đăng nhập</i></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Logout", "User")"><i class="fa fa-sign-in"> Đăng xuất</i></a></li>
+                            }
+
                         </ul>
                     </div>
                 </div>

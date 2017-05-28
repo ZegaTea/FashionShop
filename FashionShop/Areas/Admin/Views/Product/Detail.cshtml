@@ -4,12 +4,24 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 @section jsFooter{
+<script>
+        $('#btnChonAnh').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#url').val(url);
+                $('#link').attr("src", url);
+            };
+            finder.popup();
+        })
+
+</script>
     <script src="~/assets/admin/js/updateAdmin.js"></script>
 }
 <div id="page-wrapper">
 
     <div class="col-md-4">
-        <img src="@Model.product[0].urlAnh" style="width:100%; height:100%" />
+        <img src="@Model.product[0].urlAnh" style="width:100%; height:100%" id="link" />
     </div>
     <div class="col-md-8">
 
@@ -29,7 +41,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-3" for="gia">Giá sản phẩm: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control gia" id="gia" value="@Model.product[0].giaSanPham" >
+                    <input type="number" class="form-control gia" id="gia" value="@Model.product[0].giaSanPham" >
                 </div>
             </div>
             <div class="form-group">
@@ -37,6 +49,14 @@
                 <div class="col-sm-9">
                     <textarea class="form-control mota" rows="5" id="mota" >@Model.product[0].moTa</textarea>
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="url">Url: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control chatlieu" id="url" value="@Model.product[0].urlAnh">
+                    <a id="btnChonAnh" href="#">Chọn ảnh</a>
+                </div>
+                
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3" for="chatlieu">Chất liệu: </label>

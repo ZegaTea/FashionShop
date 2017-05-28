@@ -30,6 +30,12 @@ namespace FashionShop.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session[Common.CommonConstants.USER_SESSION] = null;
+            return Redirect(url);
+        }
+
         public ActionResult LoginAction(string user, string pass)
         {
            
@@ -37,6 +43,8 @@ namespace FashionShop.Controllers
             bool result = dao.CheckLogin(user, pass);
             if (result)
             {
+                var userSession = dao.getUser(user);
+                Session[Common.CommonConstants.USER_SESSION] = userSession;
                 //string link = Session[URL].ToString();
                 return Redirect(url);
             } else
@@ -45,10 +53,6 @@ namespace FashionShop.Controllers
             }
         }
 
-        public ActionResult Logout()
-        {
-            return View();
-        }
 
         public ActionResult Register()
         {
